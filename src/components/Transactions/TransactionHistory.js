@@ -14,17 +14,10 @@ export const TransactionHistory = ({ items }) => {
       <tbody>
         {items.map(({ id, type, amount, currency }) => (
           <tr className={css.tr} key={id}>
-            <td
-              className={css.td}
-              style={{
-                textTransform: 'capitalize', // відображення першої літери - великою літерою
-              }}
-            >
+            <td className={css.td} style={{ textTransform: 'capitalize' }}>
               {type}
             </td>
-            <td className={css.td} style={{}}>
-              {amount}
-            </td>
+            <td className={css.td}>{amount}</td>
             <td className={css.td}>{currency}</td>
           </tr>
         ))}
@@ -34,12 +27,12 @@ export const TransactionHistory = ({ items }) => {
 };
 
 TransactionHistory.propTypes = {
-  friends: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
       amount: PropTypes.string.isRequired,
-      currency: PropTypes.bool.isRequired,
+      currency: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
